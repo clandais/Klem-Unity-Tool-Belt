@@ -1,0 +1,12 @@
+{
+  "name": "com.klem.utils",
+  "displayName": "Klem Utils",
+  "version": "1.0.0",
+  "description": "Stuff I use often",
+  "unity": "2019.4",
+  "author": {
+    "email": "clementlandais@gmail.com",
+    "name": "Klem",
+    "url": "https://github.com/clandais"
+  }
+}
