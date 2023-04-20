@@ -17,7 +17,7 @@ A variable of any type that can be observed for changes via UnityAction callback
  
      private void Awake()
      {
-         _itemCount.OnValueChanged += OnStackSizeChanged;
+         stackSize.OnValueChanged += OnStackSizeChanged;
      }
  
      private void OnStackSizeChanged(int oldCount, int newCount)
