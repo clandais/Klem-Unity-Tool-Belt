@@ -21,7 +21,7 @@ namespace Klem.Core.Utils
         /// </summary>
         [NonSerialized] public UnityAction<T, T> OnValueChanged;
 
-        
+
         /// <summary>
         ///  The current value.
         /// </summary>
@@ -38,17 +38,36 @@ namespace Klem.Core.Utils
 
 
         /// <summary>
-        /// 
+        /// Empty ctor
+        /// </summary>
+        public ObservableVariable()
+        {
+        }
+
+        /// <summary>
+        ///  Ctor
         /// </summary>
         /// <param name="value"></param>
         public ObservableVariable(T value)
         {
-            this.value = value;
+            Value = value;
         }
 
-        public ObservableVariable()
+        /// <summary>
+        ///  Ctor with callback
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="onValueChanged"></param>
+        public ObservableVariable(T value, UnityAction<T, T> onValueChanged)
         {
-
+            OnValueChanged = onValueChanged;
+            Value = value;
         }
+
+
+
+        public static implicit operator ObservableVariable<T>(T value) => new(value);
+
+        public static implicit operator T(ObservableVariable<T> observableVariable) => observableVariable.Value;
     }
 }
