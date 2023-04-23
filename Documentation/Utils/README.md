@@ -4,7 +4,7 @@
 A component that draws a 2D bounding box in the scene view. <br/>
 It can calculate the bounds of the object based on its sprites or Colliders 2D.
 
-![Bounds2DComponent](../img/Bounds2DComponent.png)
+![Bounds2DComponent](../img/bounds2Dcomponent.png)
 ![Bounds2DComponent Gizmos](../img/bounds2Dcomponent-gizmos.png)
 
 ## ObservableVariable<T>
