@@ -54,6 +54,9 @@ public class InventoryService : MonoBehaviour, IInventoryService
     {
         ServiceLocator.Unregister<IInventoryService>(this);
     }
+   
+    public void AddItem(Item item) { /*... */ }
+  
 }
 ```
 
@@ -61,14 +64,16 @@ public class InventoryService : MonoBehaviour, IInventoryService
 
 public class InventoryUi : MonoBehaviour
 {
+    private IInventoryService _inventoryService;
+ 
     private void Start()
     {
-        var inventoryService = ServiceLocator.Get<InventoryService>();
+        _inventoryService = ServiceLocator.Get<IInventoryService>();
     }
-    
-    private void OnDestroy()
+ 
+    public void OnItemClicked(Item item)
     {
-        ServiceLocator.Unregister<InventoryService>();
+       _inventoryService.AddItem(item);
     }
 }
 ```
