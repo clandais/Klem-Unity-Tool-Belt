@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Klem.Core.Utils
+namespace Klem.Utils
 {
     /// <summary>
     /// A simple object that contains a value and can be observed for changes.

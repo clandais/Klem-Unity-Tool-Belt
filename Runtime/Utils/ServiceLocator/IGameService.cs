@@ -1,4 +1,4 @@
-﻿namespace Klem.Core.Utils.ServiceLocator
+﻿namespace Klem.Utils.ServiceLocator
 {
     /// <summary>
     /// Base interface for all services

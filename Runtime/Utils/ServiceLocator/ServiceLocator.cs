@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Klem.Core.Utils.ServiceLocator
+namespace Klem.Utils.ServiceLocator
 {
    /// <summary>
     /// A simple service locator for <see cref="IGameService"/>
@@ -14,7 +14,7 @@ namespace Klem.Core.Utils.ServiceLocator
         /// <summary>
         /// Currently Registered services
         /// </summary>
-        private static readonly Dictionary<string, IGameService> services = new Dictionary<string, IGameService>();
+        private static readonly Dictionary<string, IGameService> Services = new();
         
         
         /// <summary>
@@ -26,7 +26,7 @@ namespace Klem.Core.Utils.ServiceLocator
         public static T Get<T>() where T : IGameService
         {
             var key = typeof(T).Name;
-            if (services.TryGetValue(key, out var service))
+            if (Services.TryGetValue(key, out var service))
             {
                 return (T) service;
             }
@@ -43,13 +43,13 @@ namespace Klem.Core.Utils.ServiceLocator
         public static void Register<T>(T service) where T : IGameService
         {
             var key = typeof(T).Name;
-            if (services.ContainsKey(key))
+            if (Services.ContainsKey(key))
             {
                 Debug.LogError($"{key} is already registered with ServiceLocator.");
                 throw new InvalidOperationException();
             }
 
-            services.Add(key, service);
+            Services.Add(key, service);
         }
         
         /// <summary>
@@ -61,13 +61,13 @@ namespace Klem.Core.Utils.ServiceLocator
         public static void Unregister<T>(T service) where T : IGameService
         {
             var key = typeof(T).Name;
-            if (!services.ContainsKey(key))
+            if (!Services.ContainsKey(key))
             {
                 Debug.LogError($"Attempted to unregister {key} but it is not registered with ServiceLocator.");
                 throw new InvalidOperationException();
             }
             
-            services.Remove(key);
+            Services.Remove(key);
         }
     }
 }
