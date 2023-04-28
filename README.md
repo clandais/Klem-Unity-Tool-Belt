@@ -10,7 +10,7 @@
  [Utlities README](./Documentation/Utils/README.md) Contains a collection of utilities that I use in my projects.
 
 ## AI
-> TODO: Add AI documentation and content
+[AI README](./Documentation/AI/README.md) Contains a lightweight FSM implementation that I use in my projects.
 
 ## TODO
 > TODO: Add more content
