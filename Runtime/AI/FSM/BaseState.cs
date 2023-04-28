@@ -15,17 +15,17 @@
         /// <summary>
         /// The context that this state belongs to.
         /// </summary>
-        protected T1 Data;
+        protected T1 Context;
 
         /// <summary>
         /// Create a new state.
         /// </summary>
         /// <param name="finiteStateMachine"></param>
-        /// <param name="data"></param>
-        protected BaseState(T0 finiteStateMachine, T1 data)
+        /// <param name="context"></param>
+        protected BaseState(T0 finiteStateMachine, T1 context)
         {
             FiniteStateMachine = finiteStateMachine;
-            Data = data;
+            Context = context;
         }
 
         /// <summary>

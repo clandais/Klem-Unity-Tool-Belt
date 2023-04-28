@@ -30,7 +30,7 @@ namespace Klem.Core.AI.FSM
         /// Exit the current state and enter the new state.
         /// </summary>
         /// <param name="newState"></param>
-        protected void ChangeState(BaseState<T0, T1> newState)
+        public virtual void ChangeState(BaseState<T0, T1> newState)
         {
             CurrentState?.Exit();
             CurrentState = newState;
@@ -40,7 +40,7 @@ namespace Klem.Core.AI.FSM
         /// <summary>
         /// Update the current state.
         /// </summary>
-        public virtual void Update()
+        protected virtual void Update()
         {
             CurrentState?.Update();
         }
@@ -48,7 +48,7 @@ namespace Klem.Core.AI.FSM
         /// <summary>
         /// FixedUpdate the current state.
         /// </summary>
-        public virtual void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             CurrentState?.FixedUpdate();
         }
@@ -56,7 +56,7 @@ namespace Klem.Core.AI.FSM
         /// <summary>
         /// LateUpdate the current state.
         /// </summary>
-        public virtual void LateUpdate()
+        protected virtual void LateUpdate()
         {
             CurrentState?.LateUpdate();
         }
