@@ -8,7 +8,7 @@ namespace Klem.Core.AI.FSM
     /// </summary>
     /// <typeparam name="T0">The State Machine Type</typeparam>
     /// <typeparam name="T1">The Context Type</typeparam>
-    public abstract class FiniteStateMachine<T0, T1> : MonoBehaviour
+    public abstract class FiniteStateMachine<T0, T1> : MonoBehaviour where T0 : FiniteStateMachine<T0, T1> where T1 : MonoBehaviour
     {
         /// <summary>
         /// The current state of the finite state machine.

@@ -1,11 +1,13 @@
-﻿namespace Klem.Core.AI.FSM
+﻿using UnityEngine;
+
+namespace Klem.Core.AI.FSM
 {
     /// <summary>
     /// A base state that can be used to manage the states of a game object.
     /// </summary>
     /// <typeparam name="T0">The State Machine type</typeparam>
     /// <typeparam name="T1">The Context Type</typeparam>
-    public abstract class BaseState<T0, T1> 
+    public abstract class BaseState<T0, T1> where T0 : FiniteStateMachine<T0, T1> where T1 : MonoBehaviour
     {
         /// <summary>
         /// The finite state machine that this state belongs to.

@@ -1,29 +1,33 @@
-﻿using System;
+﻿#region
+
+using System;
 using UnityEngine;
 using UnityEngine.Events;
+
+#endregion
 
 namespace Klem.Utils
 {
     /// <summary>
-    /// A simple object that contains a value and can be observed for changes.
+    ///     A simple object that contains a value and can be observed for changes.
     /// </summary>
     /// <typeparam name="T">The type of the observed value</typeparam>
     [Serializable]
     public class ObservableVariable<T>
     {
         /// <summary>
-        /// The current value.
+        ///     The current value.
         /// </summary>
         [SerializeField] private T value;
 
         /// <summary>
-        /// The event that is invoked when the value changes.
+        ///     The event that is invoked when the value changes.
         /// </summary>
         [NonSerialized] public UnityAction<T, T> OnValueChanged;
 
 
         /// <summary>
-        ///  The current value.
+        ///     The current value.
         /// </summary>
         public T Value
         {
@@ -38,14 +42,14 @@ namespace Klem.Utils
 
 
         /// <summary>
-        /// Empty ctor
+        ///     Empty ctor
         /// </summary>
         public ObservableVariable()
         {
         }
 
         /// <summary>
-        ///  Ctor
+        ///     Ctor
         /// </summary>
         /// <param name="value"></param>
         public ObservableVariable(T value)
@@ -54,7 +58,7 @@ namespace Klem.Utils
         }
 
         /// <summary>
-        ///  Ctor with callback
+        ///     Ctor with callback
         /// </summary>
         /// <param name="value"></param>
         /// <param name="onValueChanged"></param>
@@ -65,9 +69,50 @@ namespace Klem.Utils
         }
 
 
+        public static implicit operator ObservableVariable<T>(T value)
+        {
+            return new ObservableVariable<T>(value);
+        }
 
-        public static implicit operator ObservableVariable<T>(T value) => new(value);
+        public static implicit operator T(ObservableVariable<T> observableVariable)
+        {
+            return observableVariable.Value;
+        }
+    }
 
-        public static implicit operator T(ObservableVariable<T> observableVariable) => observableVariable.Value;
+
+    /// <summary>
+    ///     A simple object that contains a two values and can be observed for changes.
+    /// </summary>
+    /// <typeparam name="T0"></typeparam>
+    /// <typeparam name="T1"></typeparam>
+    [Serializable]
+    public class ObservableVariable<T0, T1> : ObservableVariable<T0>
+    {
+        /// <summary>
+        ///     The current value.
+        /// </summary>
+        [SerializeField] private T1 value1;
+
+        /// <summary>
+        ///     The event that is invoked when the value changes.
+        /// </summary>
+        [NonSerialized] public UnityAction<T1, T1> OnValueChanged1;
+
+        public ObservableVariable(T0 value0, T1 value1) : base(value0)
+        {
+            this.value1 = value1;
+        }
+
+        public T1 Value1
+        {
+            get => value1;
+            set
+            {
+                var previous = value1;
+                value1 = value;
+                OnValueChanged1?.Invoke(previous, value1);
+            }
+        }
     }
 }
