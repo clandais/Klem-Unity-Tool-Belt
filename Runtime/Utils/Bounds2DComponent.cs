@@ -76,6 +76,9 @@ namespace Klem.Utils
             {
                 
                 case BoundsType.Sprites:
+                    
+                    Debug.Log("Bounds2DComponent:  Calculating bounds for sprites");
+                    
                     var sprRenderer = GetComponentsInChildren<SpriteRenderer>();
                     if (sprRenderer.Length == 0)
                     {
@@ -97,9 +100,15 @@ namespace Klem.Utils
                     }
                     
                     bounds.SetMinMax(boundsMin, boundsMax);
+                    
+                    Debug.Log("Bounds2DComponent:  Bounds calculated!");
+                    
                     break;
                 
                 case BoundsType.Colliders:
+                    
+                    Debug.Log("Bounds2DComponent:  Calculating bounds for colliders");
+                    
                     var colliders = GetComponentsInChildren<Collider2D>();
                     if (colliders.Length == 0)
                     {
@@ -121,6 +130,8 @@ namespace Klem.Utils
                     }
                     
                     bounds.SetMinMax(boundsMin, boundsMax);
+                    
+                    Debug.Log("Bounds2DComponent:  Bounds calculated!");
                     
                     break;
                 default:
