@@ -8,13 +8,13 @@ namespace Klem.Utils.ServiceLocator
     /// A simple service locator for <see cref="IGameService"/>
     /// </summary>
     public static class ServiceLocator
-    {
+   {
 
 
-        /// <summary>
-        /// Currently Registered services
-        /// </summary>
-        private static readonly Dictionary<string, IGameService> Services = new();
+       /// <summary>
+       /// Currently Registered services
+       /// </summary>
+       private static readonly Dictionary<string, IGameService> Services = new Dictionary<string, IGameService>();
         
         
         /// <summary>
