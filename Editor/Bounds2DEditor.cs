@@ -1,23 +1,24 @@
-﻿using Klem.Utils;
+﻿#if UNITY_EDITOR
+
+#region
+
+using Klem.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace Klem.Core
+#endregion
+
+namespace Klem.Editor
 {
     [CustomEditor(typeof(Bounds2DComponent))]
-    public class Bounds2DEditor : Editor
+    public class Bounds2DEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
-            var bounds2DComponent = (Bounds2DComponent) target;
-            
-            
-            if (GUILayout.Button("Calculate Bounds"))
-            {
-                bounds2DComponent.CalculateBounds();
-            }
-            
+            var bounds2DComponent = (Bounds2DComponent)target;
+            if (GUILayout.Button("Calculate Bounds")) bounds2DComponent.CalculateBounds();
             base.OnInspectorGUI();
         }
     }
 }
+#endif

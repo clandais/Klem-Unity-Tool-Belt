@@ -67,17 +67,6 @@ namespace Klem.Utils
             OnValueChanged = onValueChanged;
             Value = value;
         }
-
-
-        public static implicit operator ObservableVariable<T>(T value)
-        {
-            return new ObservableVariable<T>(value);
-        }
-
-        public static implicit operator T(ObservableVariable<T> observableVariable)
-        {
-            return observableVariable.Value;
-        }
     }
 
 

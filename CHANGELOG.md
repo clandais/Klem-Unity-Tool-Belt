@@ -1,0 +1,19 @@
+- 1.0.4:
+  - Added #if UNITY_EDITOR to Bounds2DComponent editor
+- 1.0.3:
+  - Fixed an issues with miscalculated Bounds2D
+  - I am stupid
+  - Made it auto geberate bounds if unset
+- 1.0.2:
+  - Fixed missing sprites in samples (added mine)
+  - Added some logging to Bounds2DComponent
+  - Fixed compatibility issues with Unity < 2021
+- 1.0.1:
+  - Added some generic constraints on the FSM. Added an ObservableVariable<T0, T1>
+  - Quick and dirty readme
+  - Added sample use for FSM
+  - Update README.md
+  - Fixed bad img link in readme
+  - Tweaked the layout to match Unity package layout. Add some samples and added content to the READMEs
+- 1.0.0: 
+  - Changed folder layout
