@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -31,6 +33,17 @@ namespace Klem.Utils
         /// </summary>
         [SerializeField] private BoundsType boundsType = BoundsType.Sprites;
 
+        
+        /// <summary>
+        ///    If true, the bounds will be updated every <see cref="updateBoundsInterval" /> seconds.
+        /// </summary>
+        [SerializeField] private bool updateBounds = true;
+        
+        /// <summary>
+        ///   The interval in seconds to update the bounds.
+        /// </summary>
+        [SerializeField] private float updateBoundsInterval = 1f;
+        
         /// <summary>
         ///     Returns the bounds for use in other scripts. (ex:
         ///     <see cref="Physics2D.OverlapBox(UnityEngine.Vector2,UnityEngine.Vector2,float)" />
@@ -60,6 +73,30 @@ namespace Klem.Utils
         }
         
         #endif
+
+        private IEnumerator _updateCo;
+
+        private void Start()
+        {
+            if (!updateBounds) return;
+            _updateCo = UpdateBounds();
+            StartCoroutine(_updateCo);
+        }
+
+        private IEnumerator UpdateBounds()
+        {
+            while (Application.isPlaying)
+            {
+                CalculateBounds();
+                yield return new WaitForSeconds(updateBoundsInterval);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            StopCoroutine(_updateCo);
+        }
+
 
         private static bool IsNotDefault(Bounds boundsProperty)
         {
@@ -151,5 +188,7 @@ namespace Klem.Utils
                     throw new ArgumentOutOfRangeException();
             }
         }
+        
+        
     }
 }
