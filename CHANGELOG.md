@@ -1,3 +1,6 @@
+- 1.0.5:
+  - Added scheduled recalculation of Bounds2DComponent
+  - Added an option to Bounds2DComponent to disable logging (or else it's heavy spam)
 - 1.0.4:
   - Added #if UNITY_EDITOR to Bounds2DComponent editor
 - 1.0.3:

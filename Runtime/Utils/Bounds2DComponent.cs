@@ -45,6 +45,11 @@ namespace Klem.Utils
         [SerializeField] private float updateBoundsInterval = 1f;
         
         /// <summary>
+        ///  Shall we log stuff in the console?
+        /// </summary>
+        [SerializeField] private bool debugLog = false;
+        
+        /// <summary>
         ///     Returns the bounds for use in other scripts. (ex:
         ///     <see cref="Physics2D.OverlapBox(UnityEngine.Vector2,UnityEngine.Vector2,float)" />
         /// </summary>
@@ -118,7 +123,7 @@ namespace Klem.Utils
             {
                 case BoundsType.Sprites:
 
-                    Debug.Log("Bounds2DComponent:  Calculating bounds for sprites");
+                    if(debugLog) Debug.Log("Bounds2DComponent:  Calculating bounds for sprites");
 
 
                     var sprRenderer = GetComponentsInChildren<SpriteRenderer>();
@@ -147,13 +152,13 @@ namespace Klem.Utils
                     bounds.min = boundsMin - position;
                     bounds.max = boundsMax - position;
 
-                    Debug.Log("Bounds2DComponent:  Bounds calculated!");
+                    if (debugLog) Debug.Log("Bounds2DComponent:  Bounds calculated!");
 
                     break;
 
                 case BoundsType.Colliders:
 
-                    Debug.Log("Bounds2DComponent:  Calculating bounds for colliders");
+                    if (debugLog) Debug.Log("Bounds2DComponent:  Calculating bounds for colliders");
 
                     var colliders = GetComponentsInChildren<Collider2D>();
                     if (colliders.Length == 0)
@@ -181,7 +186,7 @@ namespace Klem.Utils
                     bounds.min = boundsMin - position;
                     bounds.max = boundsMax - position;
 
-                    Debug.Log("Bounds2DComponent:  Bounds calculated!");
+                    if (debugLog) Debug.Log("Bounds2DComponent:  Bounds calculated!");
 
                     break;
                 default:
