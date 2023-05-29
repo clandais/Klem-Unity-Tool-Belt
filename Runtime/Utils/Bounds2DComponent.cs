@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Klem.Samples.Bounds2DComponentSample.Scripts.Interface;
 using UnityEngine;
 
 namespace Klem.Utils
@@ -81,8 +82,15 @@ namespace Klem.Utils
 
         private IEnumerator _updateCo;
 
+        private IBounds2dUpdateService _bounds2DUpdateService;
+        
         private void Start()
         {
+            if (ServiceLocator.ServiceLocator.TryGet(out _bounds2DUpdateService))
+            {
+                _bounds2DUpdateService.Register(this);
+                return;
+            }
             if (!updateBounds) return;
             _updateCo = UpdateBounds();
             StartCoroutine(_updateCo);
@@ -99,7 +107,8 @@ namespace Klem.Utils
 
         private void OnDestroy()
         {
-            StopCoroutine(_updateCo);
+            if (_updateCo != null)
+                StopCoroutine(_updateCo);
         }
 
 

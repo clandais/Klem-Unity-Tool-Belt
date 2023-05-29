@@ -1,3 +1,5 @@
+- 1.0.6:
+  - Added a new component: `Bounds2DUpdateService` which can be used to update the bounds of a `Bounds2DComponent` on a schedule. This is useful if you have a lot of objects that move around and you want to avoid recalculating the bounds every frame.
 - 1.0.5:
   - Added scheduled recalculation of Bounds2DComponent
   - Added an option to Bounds2DComponent to disable logging (or else it's heavy spam)

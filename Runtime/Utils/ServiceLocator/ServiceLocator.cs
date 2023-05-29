@@ -34,7 +34,19 @@ namespace Klem.Utils.ServiceLocator
             Debug.LogError($"{key} is not registered with ServiceLocator.");
             throw new InvalidOperationException();
         }
-        
+
+        public static bool TryGet<T>(out T service) where T : IGameService
+        {
+            var key = typeof(T).Name;
+            if (Services.TryGetValue(key, out var result))
+            {
+                service = (T) result;
+                return true;
+            }
+            service = default;
+            return false;
+        }
+
         /// <summary>
         /// Registers a service instance.
         /// </summary>
