@@ -1,0 +1,16 @@
+{
+    "name": "samples",
+    "rootNamespace": "Klem.Samples",
+    "references": [
+        "GUID:e3ea766bb9856dd4b93f347a38660717"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
