@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Klem.Core.AI.FSM
+namespace Klem.Runtime.AI.FSM
 {
     /// <summary>
     /// A base state that can be used to manage the states of a game object.
