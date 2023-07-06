@@ -1,5 +1,5 @@
 ﻿using System;
-using Klem.Core.AI.FSM;
+using Klem.Runtime.AI.FSM;
 using Klem.Samples.FSM.Scripts.States;
 using UnityEngine;
 

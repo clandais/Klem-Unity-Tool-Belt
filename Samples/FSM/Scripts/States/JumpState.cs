@@ -1,5 +1,4 @@
-﻿using Klem.Core.AI.FSM;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Klem.Samples.FSM.Scripts.States
 {
