@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Klem.Core.AI.FSM
+namespace Klem.Runtime.AI.FSM
 {
 
     /// <summary>

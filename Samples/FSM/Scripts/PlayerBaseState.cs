@@ -1,4 +1,4 @@
-﻿using Klem.Core.AI.FSM;
+﻿using Klem.Runtime.AI.FSM;
 
 namespace Klem.Samples.FSM.Scripts
 {
