@@ -24,6 +24,11 @@
       "path": "Samples/FSM",
       "displayName": "FSM Sample",
       "description": "Sample scene for FSM, a simple finite state machine"
+    },
+    {
+      "path": "Samples/ScriptableObjectDrawer",
+      "displayName": "ScriptableObjectDrawer Sample",
+      "description": "Sample scene for ScriptableObjectDrawer, a custom drawer for ScriptableObject"
     }
   ]
 }
