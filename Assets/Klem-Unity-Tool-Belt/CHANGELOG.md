@@ -1,3 +1,5 @@
+- 1.1.1:
+  - Added a new Editor property drawer: `ScriptableObjectDrawer`
 - 1.1.0:
   - May break things trying to move to Open UPM
 - 1.0.6:
