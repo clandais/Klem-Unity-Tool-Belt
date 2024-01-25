@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Klem.Samples.Bounds2DComponentSample.Scripts.Interface;
 using Klem.Utils;
@@ -12,7 +11,7 @@ namespace Klem.Samples.Bounds2DComponentSample.Scripts
     public class Bounds2DUpdateService : MonoBehaviour, IBounds2dUpdateService
     {
         [SerializeField] private float updateInterval = 1f;
-        private readonly List<Bounds2DComponent> _bounds2DComponents = new();
+        private readonly List<Bounds2DComponent> _bounds2DComponents = new List<Bounds2DComponent>();
         private IEnumerator _updateCo;
 
         private void Awake()

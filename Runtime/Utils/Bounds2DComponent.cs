@@ -16,7 +16,7 @@ namespace Klem.Utils
         private enum BoundsType
         {
             Sprites,
-            Colliders
+            Colliders,
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Klem.Utils
         /// <summary>
         ///     The color of the gizmo to draw the bounding box
         /// </summary>
-        [SerializeField] private Color boundsGizmoColor = new(0.51f, 1f, 0f);
+        [SerializeField] private Color boundsGizmoColor = new Color(0.51f, 1f, 0f);
 
         /// <summary>
         ///     The type of the bounds to calculate.
@@ -200,7 +200,7 @@ namespace Klem.Utils
 
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("boundsType", boundsType, null);
             }
         }
         
